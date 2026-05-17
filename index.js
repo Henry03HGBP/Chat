@@ -7,7 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-
+io.on('connection', socket => {
+    console.log('Nuevo cliente conectado');
+})
 
 // Enviando Archivos Estáticos
 app.use(express.static('public'));
